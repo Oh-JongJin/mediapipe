@@ -29,12 +29,12 @@ class VideoWidget(QWidget):
             self.media_player.set_hwnd(self.video_frame.winId())
 
     def on_camera_change(self, uri):
-        # if uri[:4] == 'rtsp':
-        #     self.media_player.set_media(self.instance.media_new(uri))
-        #     self.media_player.play()
-        # else:
-        self.media_player.set_media(self.instance.media_new(uri))
-        self.media_player.play()
+        if uri[:4] == 'rtsp':
+            self.media_player.set_media(self.instance.media_new(uri))
+            self.media_player.play()
+        else:
+            self.media_player.set_media(self.instance.media_new(uri))
+            self.media_player.play()
 
 
 if __name__ == '__main__':
